@@ -1,5 +1,7 @@
 package homework1.animals;
 
+import homework1.Participant;
+
 public abstract class Animal implements Participant {
 
     private String name;
@@ -26,8 +28,6 @@ public abstract class Animal implements Participant {
     public String getName() {
         return this.name;
     }
-
-    public abstract void voice();
 
     @Override
     public void run(int distance) {

@@ -1,5 +1,8 @@
 package homework1.obstacles;
 
+import homework1.Participant;
+import homework1.Team;
+
 public class Course {
     private Obstacle obstacles[];
 
@@ -9,7 +12,6 @@ public class Course {
     public void doIt(Team team){
         for (Obstacle obstacle : obstacles) {
             team.doIt(obstacle);
-            //obstacle.doIt(team);
         }
     }
 }

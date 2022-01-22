@@ -1,5 +1,6 @@
 package homework1.animals;
 
+import homework1.animals.Animal;
 public class Cat extends Animal {
 
     public Cat(String name, int maxRunDistance,
@@ -7,8 +8,4 @@ public class Cat extends Animal {
         super(name, maxRunDistance, maxJumpHeight, maxSwimDistance);
     }
 
-    @Override
-    public void voice() {
-        System.out.println("Мяу");
-    }
 }
