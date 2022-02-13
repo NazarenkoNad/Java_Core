@@ -1,0 +1,111 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+
+
+
+//import java.io.FileWriter;
+//import com.opencsv.CSVWriter;
+
+public class HomeWork5 {
+    public static void main(String[] args) {
+        try (PrintWriter writer = new PrintWriter(new File("test.csv"))) {
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("Value 1");
+            sb.append(';');
+            sb.append("Value 2");
+            sb.append(';');
+            sb.append("Value 3");
+            sb.append(';');
+
+            sb.append("100");
+            sb.append(';');
+            sb.append("200");
+            sb.append(';');
+            sb.append("300");
+            sb.append(';');
+
+            sb.append("300");
+            sb.append(';');
+            sb.append("400");
+            sb.append(';');
+            sb.append("500");
+            sb.append(';');
+
+            writer.write(sb.toString());
+            writer.close();
+            System.out.println("done!");
+
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+
+        readCSVFile();
+
+    }
+
+    public static void readCSVFile() {
+        File testCSV = new File("test.csv");
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(testCSV);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (scanner.hasNextLine()) {
+            System.out.println(scanner.nextLine());
+        }
+        scanner.close();
+    }
+
+
+}
+
+
+     TestCSV testCSV =  new TestCSV();
+        testCSV.readCSVFile();
+    }
+
+ /*   public void readCSVFile(){
+        List<List<String>> records = new ArrayList<>();
+        try (Scanner scanner = new Scanner(new File("test.csv"));) {
+            while (scanner.hasNextLine()) {
+                records.add(getRecordFromLine(scanner.nextLine()));
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        System.out.println(records.toString());
+    }
+    private List<String> getRecordFromLine(String line) {
+        List<String> values = new ArrayList<String>();
+        try (Scanner rowScanner = new Scanner(line)) {
+            rowScanner.useDelimiter(";");
+            while (rowScanner.hasNext()) {
+                values.add(rowScanner.next());
+            }
+        }
+        return values;
+    }
+    }
+       второй пример
+
+      public static void main(String[] args)  throws Exception {
+    String csv = "data.csv";
+    CSVWriter writer = new CSVWriter(new FileWriter(csv));
+    Create record
+    String [] record = "100;200;123".split(";");
+      Write the record to file
+      writer.writeNext(record);
+      close the writer
+      writer.close();
+
+
+ }
+
