@@ -10,7 +10,7 @@ public class HomeWork5 {
         AppData appData = new AppData();
         appData.read(file);
         System.out.println(Arrays.toString(appData.getHeaders()));
-        System.out.println(Arrays.toString(appData.getData()[0]));
+        System.out.println(Arrays.toString(appData.getData()[2]));
 
         appData.write(file2);
     }
