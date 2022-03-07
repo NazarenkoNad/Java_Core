@@ -1,4 +1,4 @@
-package lesson7;
+package homework7;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.HttpUrl;
@@ -57,15 +57,9 @@ public class RequestHandler {
 
         Response response1 = okHttpClient.newCall(reguest1).execute();
         String jsonOfForecast = response1.body().string();
-        System.out.println(jsonOfForecast);
-     //   String ForecastForDay;
-        String ForecastForDay = objectMapper.readTree(jsonOfForecast).get(0)at("Headline").asText();
-      //  System.out.println(ForecastForDay);
-      //  String ForecastForDay = objectMapper.readTree(jsonOfForecast).get("Temperature").asText();
-     //   String cityID = objectMapper.readTree(jsonOfCities).get(0).at("/Key").asText();
-
-
-
+       // System.out.println(jsonOfForecast);
+        String ForecastForDay = objectMapper.readTree(jsonOfForecast).at("/DailyForecasts").get(0).at("/Temperature" +
+                "/Maximum/Value").asText();
         return ForecastForDay;
 
     }
